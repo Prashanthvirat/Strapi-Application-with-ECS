@@ -20,3 +20,6 @@ module "rds_prashanth_task7" {
   db_username = var.db_username
   db_password = var.db_password
 }
+output "debug_subnet_ids" {
+  value = var.subnet_ids
+}
