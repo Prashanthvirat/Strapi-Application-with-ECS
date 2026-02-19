@@ -1,23 +1,37 @@
 # Docker image info
 variable "image_tag" {
+  type        = string
   description = "Docker image tag from CI"
 }
 
 variable "dockerhub_repo" {
-  description = "Docker Hub repo (username/strapi)"
+  type        = string
+  description = "Docker Hub repo (username/repo)"
 }
 
 # ECS
 variable "execution_role_arn" {
+  type        = string
   description = "Existing ECS task execution role ARN"
 }
 
 variable "subnet_ids" {
   type        = list(string)
-  description = "Subnets for ECS service"
+  description = "Subnets for ECS + RDS subnet group"
 }
 
-variable "db_name" {}
-variable "db_username" {}
-variable "db_password" {}
+# RDS
+variable "db_name" {
+  type = string
+}
+
+variable "db_username" {
+  type = string
+}
+
+variable "db_password" {
+  type      = string
+  sensitive = true
+}
+
 
