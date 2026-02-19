@@ -1,3 +1,5 @@
+variable "vpc_id" {}
+
 variable "image_tag" {}
 variable "dockerhub_repo" {}
 
@@ -11,3 +13,4 @@ variable "db_host" {}
 variable "db_name" {}
 variable "db_username" {}
 variable "db_password" {}
+
