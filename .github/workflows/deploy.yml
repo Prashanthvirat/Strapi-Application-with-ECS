@@ -29,6 +29,26 @@ jobs:
         working-directory: terraform
         run: terraform init
 
+      - name: Terraform Format Check
+        working-directory: terraform
+        run: terraform fmt -check -recursive
+
+      - name: Terraform Validate
+        working-directory: terraform
+        run: terraform validate
+
+      - name: Terraform Plan
+        working-directory: terraform
+        run: |
+          terraform plan \
+          -var="image_tag=${{ github.event.inputs.image_tag }}" \
+          -var="dockerhub_repo=${{ secrets.DOCKERHUB_REPO }}" \
+          -var="execution_role_arn=${{ secrets.ECS_EXECUTION_ROLE_ARN }}" \
+          -var="db_name=${{ secrets.DB_NAME }}" \
+          -var="db_username=${{ secrets.DB_USERNAME }}" \
+          -var="db_password=${{ secrets.DB_PASSWORD }}" \
+          -var='subnet_ids=["subnet-04a2cc0ad31b80f28","subnet-01f2ca4d26de1fd81"]'
+
       - name: Terraform Apply
         working-directory: terraform
         run: |
@@ -36,8 +56,9 @@ jobs:
           -var="image_tag=${{ github.event.inputs.image_tag }}" \
           -var="dockerhub_repo=${{ secrets.DOCKERHUB_REPO }}" \
           -var="execution_role_arn=${{ secrets.ECS_EXECUTION_ROLE_ARN }}" \
-          -var='subnet_ids=[${{ secrets.SUBNET_IDS }}]' \
           -var="db_name=${{ secrets.DB_NAME }}" \
           -var="db_username=${{ secrets.DB_USERNAME }}" \
           -var="db_password=${{ secrets.DB_PASSWORD }}" \
+          -var='subnet_ids=["subnet-04a2cc0ad31b80f28","subnet-01f2ca4d26de1fd81"]'
+
 
