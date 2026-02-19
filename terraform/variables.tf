@@ -20,6 +20,11 @@ variable "subnet_ids" {
   description = "Subnets for ECS + RDS subnet group"
 }
 
+variable "vpc_id" {
+  type        = string
+  description = "VPC ID for ECS and security groups"
+}
+
 # RDS
 variable "db_name" {
   type = string

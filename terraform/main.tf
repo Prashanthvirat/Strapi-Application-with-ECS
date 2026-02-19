@@ -5,6 +5,7 @@ module "ecs_prashanth_task7" {
   dockerhub_repo     = var.dockerhub_repo
   execution_role_arn = var.execution_role_arn
   subnet_ids         = var.subnet_ids
+  vpc_id             = var.vpc_id
 
   db_host     = module.rds_prashanth_task7.db_endpoint
   db_name     = var.db_name

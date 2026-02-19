@@ -7,6 +7,8 @@ subnet_ids = [
   "subnet-01f2ca4d26de1fd81"
 ]
 
+vpc_id = "vpc-0f4e5c1a0d2b3c4e5" # Replace with your actual VPC ID
+
 db_name     = "prashanth_task7_strapi"
 db_username = "prashanth_task7_user"
 db_password = "Prashanth#Task7$2026"
