@@ -1,10 +1,10 @@
 module "ecs_prashanth_task7" {
   source = "./modules/ecs"
 
-  image_tag           = var.image_tag
-  dockerhub_repo      = var.dockerhub_repo
+  image_tag          = var.image_tag
+  dockerhub_repo     = var.dockerhub_repo
   execution_role_arn = var.execution_role_arn
-  subnet_ids          = var.subnet_ids
+  subnet_ids         = var.subnet_ids
 
   db_host     = module.rds_prashanth_task7.db_endpoint
   db_name     = var.db_name
